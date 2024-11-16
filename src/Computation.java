@@ -1,14 +1,23 @@
 import java.io.File;
 import java.io.*;
 import java.util.Scanner;
+
+/**
+ * This class carries out the appropriate calculations for the program.
+ *
+ * @author Joshua Cochran
+ */
 public class Computation {
 
     //needed vars for operations
-    int sum = 0;
-    int divisor = 0;
-    int average = 0;
+    double sum = 0;
+    double divisor = 0;
+    double average = 0;
     int days = 0;
 
+    /**
+     *Calculates average of scores from mood.csv file.
+     */
     public void moodAverage() {
 
         try (Scanner sc = new Scanner(new File("mood.csv"))) {
@@ -16,8 +25,10 @@ public class Computation {
             //iterate through file and add numbers
             while (sc.hasNextLine()) { //while new line exists
 
-                //cap input, turn into int
-                sum = sum + Integer.parseInt(sc.nextLine());
+               //read first token (first column)
+                sum = sum + Double.parseDouble(sc.next());
+                //skips next column
+                sc.nextLine();
                 //increment divisor counter
                 divisor++;
             }
@@ -25,20 +36,25 @@ public class Computation {
             //calculate average
             average = sum / divisor;
 
-            System.out.println("Your average mood (1-10): " + average);
+            System.out.printf("Your average mood (1-10): %.1f\n", average);
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //for error reporting
         }
     }
 
+    /**
+     * Calculates average of scores from sleep.csv file.
+     */
     public void sleepAverage() {
         try (Scanner sc = new Scanner(new File("sleep.csv"))) {
 
             //iterate through file and add numbers
             while (sc.hasNextLine()) { //while new line exists
 
-                //cap input, turn into int
-                sum = sum + Integer.parseInt(sc.nextLine());
+                //caps first column
+                sum = sum + Double.parseDouble(sc.next());
+                //skips next column
+                sc.nextLine();
                 //increment divisor counter
                 divisor++;
             }
@@ -46,14 +62,18 @@ public class Computation {
             //calculate average
             average = sum / divisor;
 
-            System.out.println("Your average hours of sleep: " + average);
+            System.out.printf("Your average hours of sleep: %.1f\n", average);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public void addDayAndReport() throws IOException {
+    /**
+     * this method tracks how many days worth of data has been collected
+     * @throws IOException
+     */
+    public void addDay() throws IOException {
 
         PrintWriter daysWriter = new PrintWriter(new FileWriter("days.csv", true));
 
@@ -67,7 +87,27 @@ public class Computation {
             daysWriter.println(days); //write into file
             daysWriter.close(); //close to release from buffer
 
-            System.out.println("You have tracked " + days + " days of data.");
+        } catch (IOException e) { //necessary
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method just reports how many
+     * days worth of data has been collected
+     */
+    public void reportDay() throws IOException {
+
+        try (Scanner sc = new Scanner(new File("days.csv"))) {
+
+            //capture the last line on days
+            while (sc.hasNextLine()) {
+                //find last line for days
+                days = Integer.parseInt(sc.nextLine());
+            }
+
+            System.out.println(days + " days of data collected.");
+
 
         } catch (IOException e) { //necessary
             e.printStackTrace();
