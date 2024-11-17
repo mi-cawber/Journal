@@ -12,7 +12,7 @@ import java.time.LocalDate;
  */
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
 
 
         //new computation object for all my computations
@@ -22,6 +22,7 @@ public class Main {
         //capture date
         //would like to have a checker, to only allow data once a day
         String date = String.valueOf(LocalDate.now());
+        String dateChecker; //variable to tell whether user has entered data already today
 
         // File writers for each text field
         PrintWriter sleepWriter = new PrintWriter(new FileWriter("sleep.csv", true));

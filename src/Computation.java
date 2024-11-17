@@ -16,7 +16,7 @@ public class Computation {
     int days = 0;
 
     /**
-     *Calculates average of scores from mood.csv file.
+     *Calculates average of scores from mood.csv
      */
     public void moodAverage() {
 
@@ -48,7 +48,7 @@ public class Computation {
     }
 
     /**
-     * Calculates average of scores from sleep.csv file.
+     * Calculates average of scores from sleep.csv
      */
     public void sleepAverage() {
         try (Scanner sc = new Scanner(new File("sleep.csv"))) {
@@ -79,7 +79,7 @@ public class Computation {
     }
 
     /**
-     * Calculates average caffeine intake
+     * Calculates average caffeine intake in mg from caffeine.csv
      */
     public void caffeineAverage() {
         try (Scanner sc = new Scanner(new File("caffeine.csv"))) {
