@@ -37,6 +37,11 @@ public class Computation {
             average = sum / divisor;
 
             System.out.printf("Your average mood (1-10): %.1f\n", average);
+
+            //reset the variables
+            sum = 0;
+            divisor = 0;
+            average = 0;
         } catch (IOException e) {
             e.printStackTrace(); //for error reporting
         }
@@ -63,6 +68,42 @@ public class Computation {
             average = sum / divisor;
 
             System.out.printf("Your average hours of sleep: %.1f\n", average);
+
+            //reset the variables
+            sum = 0;
+            divisor = 0;
+            average = 0;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Calculates average caffeine intake
+     */
+    public void caffeineAverage() {
+        try (Scanner sc = new Scanner(new File("caffeine.csv"))) {
+
+            //iterate through file and add numbers
+            while (sc.hasNextLine()) { //while new line exists
+
+                //caps first column
+                sum = sum + Double.parseDouble(sc.next());
+                //skips next column
+                sc.nextLine();
+                //increment divisor counter
+                divisor++;
+            }
+
+            //calculate average
+            average = sum / divisor;
+
+            System.out.printf("Your caffeine intake: %.1f milligrams\n", average);
+
+            //reset the variables
+            sum = 0;
+            divisor = 0;
+            average = 0;
         } catch (IOException e) {
             e.printStackTrace();
         }

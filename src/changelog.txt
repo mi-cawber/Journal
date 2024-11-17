@@ -1,0 +1,7 @@
+Version log
+
+0.2 (11/16/2024)
+-adds ability to track dates
+
+0.3 (11/16/2024)
+-adds the ability to track caffeine intake
