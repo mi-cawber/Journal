@@ -98,7 +98,7 @@ public class Computation {
             //calculate average
             average = sum / divisor;
 
-            System.out.printf("Your caffeine intake: %.1f milligrams\n", average);
+            System.out.printf("Your average caffeine intake: %.1f milligrams\n", average);
 
             //reset the variables
             sum = 0;
