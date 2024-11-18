@@ -6,6 +6,10 @@ Version log
 0.3 (11/16/2024)
 -adds the ability to track caffeine intake
 
+0.4 (11/18/2024)
+-adds the ability to track workout data
+-cleaning structure of files
+
 
 Wants:
 -Ways to visualize data

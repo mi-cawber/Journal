@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * The user will be given the ability to derive insights from the collected data.
  *
  * @author Joshua Cochran
- * @version 0.3
+ * @version 0.4
  * See changelog.txt for detailed version information.
  */
 
