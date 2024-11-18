@@ -12,16 +12,14 @@ import java.time.LocalDate;
  */
 
 public class Main {
-
-    Scanner sc = new Scanner(System.in);
-   
     //would like to have a checker, to only allow data once a day
     String date = String.valueOf(LocalDate.now());
-    String dateChecker; //variable to tell whether user has entered data already today
+    String dateChecker;
 
 
     public static void main(String[] args) throws Exception {
 
+        //new scanner, comp object
         Scanner sc = new Scanner(System.in);
         Computation comp = new Computation();
 
@@ -41,27 +39,29 @@ public class Main {
             //if they want to input values
             if (decisionInput.equals("1")) { //enter inputs
 
+                //enter all relevant values
                 enterSleep();
-
                 enterMood();
-
                 enterCaffeine();
-
                 enterWorkout();
 
-                comp.addDay(); //+1 to days collected tracker
+                //+1 to days collected tracker
+                comp.addDay();
+                //exit loop
+                decisionPath = true;
 
-                decisionPath = true; //exit loop
+            } else if (decisionInput.equals("2")) {
 
-            } else if (decisionInput.equals("2")) { //report averages
+                //report averages
                 comp.moodAverage();
                 comp.sleepAverage();
                 comp.caffeineAverage();
                 comp.reportDay();
 
-                sc.close(); //close scanner
-
-                decisionPath = true; //exit loop
+                //close scanner
+                sc.close();
+                //exit loop
+                decisionPath = true;
             }
         }
     }
