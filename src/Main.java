@@ -21,7 +21,11 @@ public class Main {
         //new scanner, comp object
         Scanner sc = new Scanner(System.in);
         Computation comp = new Computation();
+        Visualization vis = new Visualization();
         DataEntry data = new DataEntry();
+
+        vis.BarChart();
+
 
 
         //controller for while loop
