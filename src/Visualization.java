@@ -1,24 +1,31 @@
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.category.DefaultCategoryDataset;
+import com.mitchtalmadge.asciidata.graph.ASCIIGraph;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Visualization {
 
-    public JFreeChart BarChart() {
-        // Create a dataset for the chart
-        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(5, "Category 1", "A");
-        dataset.addValue(7, "Category 1", "B");
-        dataset.addValue(3, "Category 1", "C");
+    public void caffeineGraph() throws IOException {
+        Scanner sc = new Scanner(new File("caffeine.csv"));
+        //make array
+        double[] testArray = new double[30];
 
-        // Create the chart using ChartFactory
-        JFreeChart chart = ChartFactory.createBarChart(
-                "Sample Bar Chart",    // Chart title
-                "Category",            // X-Axis label
-                "Value",               // Y-Axis label
-                dataset                // Dataset
-        );
+        int i = 0;
 
-        return chart;
+        while (sc.hasNextLine()){
+            //read first token (first column)
+            testArray[i] = Double.parseDouble(sc.next());
+            //skips next column
+            sc.nextLine();
+            i++;
+        }
+
+        for (int j = 0; j < testArray.length; j++){
+            System.out.println(testArray[j]);
+        }
+
+        System.out.println(ASCIIGraph.fromSeries(testArray).withNumRows(5).plot());
+
     }
 }

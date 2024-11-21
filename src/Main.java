@@ -24,9 +24,8 @@ public class Main {
         Visualization vis = new Visualization();
         DataEntry data = new DataEntry();
 
-        vis.BarChart();
-
-
+        vis.caffeineGraph();
+        System.exit(2);
 
         //controller for while loop
         boolean decisionPath = false;

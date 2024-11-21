@@ -10,7 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8af9e9c1-117b-4524-b89a-76114d8571f8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfree_jfreechart.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Journal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Journal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Visualization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Visualization.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,11 +100,22 @@
       <workItem from="1731970618346" duration="394000" />
       <workItem from="1731977526027" duration="7412000" />
       <workItem from="1732043903447" duration="3106000" />
-      <workItem from="1732129098816" duration="481000" />
+      <workItem from="1732129098816" duration="4458000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
