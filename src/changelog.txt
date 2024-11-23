@@ -10,6 +10,9 @@ Version log
 -adds the ability to track workout data
 -cleaning structure of files
 
+0.5 (11/22/2024)
+-adds ability to visualize data with ASCIIGraph (see Visualization.java)
+
 
 Wants:
 -Ways to visualize data

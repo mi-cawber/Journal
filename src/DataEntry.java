@@ -6,6 +6,17 @@ import java.util.Scanner;
 public class DataEntry {
 
     /**
+     * This method will take inputs for all measured variables of interest
+     * @throws Exception
+     */
+    static void totalEntry() throws Exception{
+        enterSleep();
+        enterMood();
+        enterCaffeine();
+        enterWorkout();
+    }
+
+    /**
      * This method allows user to enter hours of sleep for the last night,
      * and records this on a .csv file, along with the current date.
      * @throws Exception

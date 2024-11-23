@@ -6,7 +6,7 @@ import java.time.LocalDate;
  * The user will be given the ability to derive insights from the collected data.
  *
  * @author Joshua Cochran
- * @version 0.4
+ * @version 0.5
  * See changelog.txt for detailed version information.
  */
 
@@ -22,50 +22,58 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Computation comp = new Computation();
         Visualization vis = new Visualization();
-        DataEntry data = new DataEntry();
-
-        vis.caffeineGraph();
-        System.exit(2);
 
         //controller for while loop
         boolean decisionPath = false;
 
+
+        //main decision loop
         while (!decisionPath) {
 
             //ask whether user wants to input values or get averages
-            System.out.println("Choose Option:");
-            System.out.println("(1) Input values");
-            System.out.println("(2) Get metrics");
+            System.out.printf("Choose Option:\n(1) Input values\n(2) Get metrics\n(3) Get graphs\n");
 
             String decisionInput = sc.nextLine();
 
-            //if they want to input values
+            //to input values
             if (decisionInput.equals("1")) { //enter inputs
 
                 //enter all relevant values
-                data.enterSleep();
-                data.enterMood();
-                data.enterCaffeine();
-                data.enterWorkout();
+                DataEntry.totalEntry();
 
                 //+1 to days collected tracker
                 comp.addDay();
                 //exit loop
                 decisionPath = true;
 
-            } else if (decisionInput.equals("2")) {
-
-                //report averages
-                comp.moodAverage();
-                comp.sleepAverage();
-                comp.caffeineAverage();
-                comp.reportDay();
-
+            } else if (decisionInput.equals("2")) { //to get averages
+                //report all relevant averages
+                comp.reportAll();
                 //close scanner
                 sc.close();
                 //exit loop
                 decisionPath = true;
+            } else if (decisionInput.equals("3")){ //to get graphs
+                //prompt for which graphs
+                System.out.printf("Which graph:\n(1) Caffeine\n(2) Mood\n(3) Sleep\n");
+                //take user input for graph decision
+                decisionInput = sc.nextLine();
+
+                    //report relevant graph
+                    if (decisionInput.equals("1")){ //caffeine graph
+                        vis.caffeineGraph();
+                        decisionPath = true; //exit loop
+
+                    } else if (decisionInput.equals("2")){ //mood graph
+                        vis.moodGraph();
+                        decisionPath = true; //exit loop
+
+                    } else if (decisionInput.equals("3")){ //sleep graph
+                        vis.sleepGraph();
+                        decisionPath = true; //exit loop
+
+                    }
+                }
             }
         }
     }
-}

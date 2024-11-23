@@ -15,6 +15,21 @@ public class Computation {
     double average = 0;
     int days = 0;
 
+
+    /**
+     *This method will report all the most relevant averages
+     */
+    public void reportAll(){
+        moodAverage();
+        sleepAverage();
+        caffeineAverage();
+        try{
+            reportDay();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     /**
      *Calculates average of scores from mood.csv
      */
@@ -128,7 +143,7 @@ public class Computation {
             daysWriter.println(days); //write into file
             daysWriter.close(); //close to release from buffer
 
-        } catch (IOException e) { //necessary
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -136,6 +151,7 @@ public class Computation {
     /**
      * This method just reports how many
      * days worth of data has been collected
+     * @throws IOException
      */
     public void reportDay() throws IOException {
 
@@ -148,7 +164,6 @@ public class Computation {
             }
 
             System.out.println(days + " days of data collected.");
-
 
         } catch (IOException e) { //necessary
             e.printStackTrace();
